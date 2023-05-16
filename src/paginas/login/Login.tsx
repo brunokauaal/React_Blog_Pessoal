@@ -1,13 +1,11 @@
-
-
 function Login(){
 
 
     return(
 
         <>
-            
-            <h1>Pagina login</h1>
+           
+            <h1>Login</h1>
         
         </>
 
