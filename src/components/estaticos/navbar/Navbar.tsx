@@ -10,7 +10,7 @@ function Navbar() {
 
     return (
         <>
-            <AppBar position="static">
+            <AppBar className='nav' position="static">
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
                         <Typography variant="h5" color="inherit">
@@ -27,7 +27,7 @@ function Navbar() {
                         </Box>
                         </Link>
                         <Box mx={1} style={{ cursor: "pointer" }}>
-                            <Typography variant="h6" style={{color: "yellow"}}>
+                            <Typography variant="h6" style={{color: "White"}}>
                                 Criar Postagem
                             </Typography>
                         </Box>

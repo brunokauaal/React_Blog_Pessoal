@@ -37,8 +37,8 @@ function Footer() {
                             <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2023 Copyright:</Typography>
                         </Box>
                         <Box>
-                            <a target="_blank" href="https://brasil.generation.org">
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">brasil.generation.org</Typography>
+                            <a target="_blank" href="https://github.com/brunokauaal">
+                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">https://github.com/brunokauaal</Typography>
                             </a>
                         </Box>
                     </Box>
