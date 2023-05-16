@@ -6,7 +6,7 @@ function Login(){
         <>
            
             <h1>Login</h1>
-        
+            <Route path="/login" element={<Login />}/>
         </>
 
 
