@@ -10,25 +10,29 @@ import "swiper/css/navigation";
 import "./Carrossel.css";
 
 // Importanto Componentes do Swiper
-import { Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 function Carrossel() {
     return (
         <>
             <Swiper
                 slidesPerView={1}
-                spaceBetween={30}
+                spaceBetween={50}
                 loop={true}
                 pagination={{
                     clickable: true,
                 }}
+                autoplay={{
+                    delay: 5000,
+                    disableOnInteraction: false,
+                }}
                 navigation={true}
-                modules={[Pagination, Navigation]}
+                modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
 
                 <SwiperSlide>
-                    <img  src="https://nattivos.com/wp-content/uploads/2017/12/fit5.jpg" alt="Imagem" />
+                    <img src="https://nattivos.com/wp-content/uploads/2017/12/fit5.jpg" alt="Imagem" />
                 </SwiperSlide>
 
                 <SwiperSlide>
