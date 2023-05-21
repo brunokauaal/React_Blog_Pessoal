@@ -26,7 +26,7 @@ function TabPostagem () {
                     </Box>
                 </TabPanel>
                 <TabPanel value="2">
-                    <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="tt">Sobre-nós</Typography>
+                    <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className="tabSobre">Sobre-nós</Typography>
                     <Typography variant="body1" gutterBottom color="textPrimary"  align="justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quis quo officiis molestiae nihil nemo magni velit facilis expedita ex labore quisquam ducimus accusantium quam pariatur amet fuga, mollitia repellendus?</Typography>
                     
                 </TabPanel>

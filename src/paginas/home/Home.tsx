@@ -3,6 +3,7 @@ import { Grid, Box, Typography, Button } from "@mui/material"
 import Carrossel from "../../components/carrosel/Carrossel"
 import './Home.css';
 import TabPostagem from "../../components/postagens/tabpostagem/TabPostagem";
+import { Link } from "react-router-dom";
 
 
 
@@ -22,7 +23,9 @@ function Home() {
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                         </Box>
+                        <Link  to='/postagens'>
                         <Button variant="outlined" className="botao">Ver Postagens</Button>
+                        </Link>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
