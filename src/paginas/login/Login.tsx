@@ -1,22 +1,32 @@
-import React, { ChangeEvent, useState,useEffect } from "react";
+import React, { ChangeEvent, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../services/Service";
 import useLocalStorage from "react-use-localstorage";
 import UserLogin from "../../models/UserLogin";
 import { Box, Grid, Typography, TextField, Button } from "@material-ui/core";
 import './Login.css';
+import { useDispatch } from "react-redux";
+import { AddToken } from "../../store/token/Actions";
+import { toast } from "react-toastify";
 
 function Login() {
-  let  navigate = useNavigate();
-  const [token, setToken] = useLocalStorage('token');  //GURDA NOSSO TOKEN
+  let navigate = useNavigate();
+  //const [token, setToken] = useLocalStorage('token');  //GURDA NOSSO TOKEN
+
+  const dispatch = useDispatch();
+  const [token, setToken] = useState("");
+
 
   //FALANDO QUE VAMOS GURDAR AS INFORMAÇOES DE RETORNO AI UTILIZAMOS A FORMINHA
-  const [userLogin, setUserLogin] = useState<UserLogin>({ 
+  const [userLogin, setUserLogin] = useState<UserLogin>({
     id: 0,
     usuario: '',
     senha: '',
     token: ''
   });
+
+
+  
 
   function updateModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
@@ -25,11 +35,13 @@ function Login() {
     });
   }
 
-  useEffect(()=>{
-    if (token != ''){
-        navigate('/home')
+  useEffect(() => {
+    if (token !== '') {
+      console.log("Token:", token)
+      dispatch(AddToken(token))
+      navigate('/home')
     }
-  }, [token,navigate])
+  }, [token, navigate])
 
 
 
@@ -37,9 +49,27 @@ function Login() {
     e.preventDefault(); // previne o comportamento padrão do botão para impedir que a página seja atualizada
     try {
       await login(`/usuarios/logar`, userLogin, setToken);
-      alert('Usuário logado com sucesso!');
+      toast.success('Usuário logado com sucesso!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     } catch (error) {
-      alert('Dados do usuario incosistentes.  Erro ao fazer login!');
+      toast.error('Dados do usuario incosistentes.  Erro ao fazer login!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     }
   }
 

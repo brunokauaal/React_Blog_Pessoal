@@ -7,17 +7,35 @@ import './Home.css';
 import { useNavigate } from 'react-router';
 import useLocalStorage from 'react-use-localstorage';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { UserState } from '../../store/token/Reducer';
+import { toast } from 'react-toastify';
 
 
 function Home() {
 
 
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+    // const [token, setToken] = useLocalStorage('token');
+
+    const token = useSelector<UserState, UserState["tokens"]>(
+
+        (state) => state.tokens
+      )
+
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick:true ,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+               });
             navigate("/login")
 
         }
@@ -48,14 +66,6 @@ function Home() {
                         <TabPostagem />
                     </Grid>
                 </Grid>
-                {/*  Carrosel 
-                <Grid container className="caixa">
-                    <Grid item xs={12}>
-                    
-                        <Carrossel />
-                    </Grid>
-                </Grid>
-                     */}
 
             </>
 
