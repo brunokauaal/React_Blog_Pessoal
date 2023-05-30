@@ -1,5 +1,5 @@
-.imagem2 {
-    background-image: url(https://www.tecnisa.com.br/blog/wp-content/uploads/2019/05/Tecnisa_Arariba_Fachada_R01_otimizada-1024x957.jpg);
+.imagem2{
+    background-image: url("https://www.tecnisa.com.br/blog/wp-content/uploads/2019/05/Tecnisa_Arariba_Fachada_R01_otimizada-1024x957.jpg");
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -11,15 +11,6 @@
     font-weight: bold !important;
 }
 
-.botaoCancelar{
-    background-color: #f50f0fcc !important;
-    color:#FFFFFF !important;
-    border-radius: 15px !important;
+.btnCancelar{
     margin-right: 20px !important;
- }
- 
- .botaoCadastrar{
-     background-color: #220a8b !important;
-     color:#FFFFFF !important;
-     border-radius: 15px !important;
-  }
+}

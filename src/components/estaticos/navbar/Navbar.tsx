@@ -1,106 +1,98 @@
-import React, { useState, useEffect } from 'react'
-import { AppBar, Toolbar, Typography } from '@material-ui/core'
-import { Box } from '@mui/material'
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import { useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Box } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { addToken } from '../../../store/token/Actions';
 import { UserState } from '../../../store/token/Reducer';
-import { AddToken } from '../../../store/token/Actions';
-import { toast } from "react-toastify";
-
-
+import './Navbar.css';
+import { toast } from 'react-toastify';
 
 function Navbar() {
-    //const [token, setToken] = useLocalStorage('token')
+
     let navigate = useNavigate();
 
-    const dispatch= useDispatch()
-    const token = useSelector<UserState, UserState["tokens"]>(
+    const dispatch = useDispatch()
 
+    const token = useSelector<UserState, UserState["tokens"]>(
         (state) => state.tokens
       )
 
     function goLogout() {
-        dispatch (AddToken(''))
-       toast.info('Usuario deslogado com sucesso!', {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick:true ,
-        pauseOnHover: false,
-        draggable: false,
-        theme: "colored",
-        progress: undefined,
-       });
+        dispatch(addToken(''))
+        toast.info('Usuário Desconectado!', {
+            position: 'top-right',
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: 'colored',
+            progress: undefined,
+          });
         navigate('/login')
     }
-    var navbarComponent
-    if (token !== '') {
-        navbarComponent=
-    
-    
-            <AppBar className='nav' position="static">
+
+    var navbarComponent;
+
+    if(token !== ''){
+        navbarComponent =    
+            <AppBar position="static">
                 <Toolbar variant="dense">
-                    <Box className='cursor' >
+                    <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
-                            Blog Pessoal
+                            BlogPessoal
                         </Typography>
                     </Box>
-                    
                     <Box display="flex" justifyContent="start">
-                        <Link to='/home' className='text-decorator-none'>
-                            
-                                <Box mx={1} style={{ cursor: "pointer" }}>
-                                    <Typography variant="h6" color="inherit">
-                                        Home
-                                    </Typography>
-                                </Box>
-                            </Link>
-                     
-                
-                        <Link to="/postagens" className='text-decorator-none'>
-                        <Box mx={1} className='cursor'>
-                            <Typography variant="h6" color="inherit">
-                                postagens
-                            </Typography>
-                        </Box>
+                        <Link to="/home" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    home
+                                </Typography>
+                            </Box>
                         </Link>
-                        <Link to="/temas" className='text-decorator-none'>
+                        <Link to="/posts" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    postagens
+                                </Typography>
+                            </Box>
+                        </Link>
+                        <Link to="/temas" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     temas
                                 </Typography>
-
                             </Box>
                         </Link>
-
-                        <Link to="/formularioTema" className='text-decorator-none'>
+                        <Link to="/formularioTema" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     cadastrar tema
                                 </Typography>
                             </Box>
                         </Link>
-
-                        <Box mx={1} className='cursor' onClick={goLogout} >
+                        <Link to="/perfil" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    Perfil
+                                </Typography>
+                            </Box>
+                        </Link>
+                        <Box mx={1} className='cursor' onClick={goLogout}>
                             <Typography variant="h6" color="inherit">
-                                Logout
+                                logout
                             </Typography>
                         </Box>
-
                     </Box>
-
                 </Toolbar>
             </AppBar>
-            }
-        return (
-         <>
+    }
+       return (
+        <>
         {navbarComponent}
-        </>
-    );
-
+       </>
+    )
 }
 
-export default Navbar
+export default Navbar;
