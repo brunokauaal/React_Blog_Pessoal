@@ -51,7 +51,7 @@ function Navbar() {
                                 </Typography>
                             </Box>
                         </Link>
-                        <Link to="/posts" className="text-decorator-none">
+                        <Link to="/postagens" className="text-decorator-none">
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     postagens
@@ -69,6 +69,13 @@ function Navbar() {
                             <Box mx={1} className='cursor'>
                                 <Typography variant="h6" color="inherit">
                                     cadastrar tema
+                                </Typography>
+                            </Box>
+                        </Link>
+                        <Link to="/postagensportitulo" className="text-decorator-none">
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    Postagens por título
                                 </Typography>
                             </Box>
                         </Link>

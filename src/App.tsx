@@ -17,6 +17,9 @@ import store from './store/Store';
 
 import 'react-toastify/dist/ReactToastify.css';
 
+import AtualizarUsuario from './components/usuarios/AtualizarUsuario';
+import ListaPostagemPorTitulo from './components/postagens/listapostagemportitulo/ListaPostagemPorTitulo';
+
 function App() {
 
 
@@ -32,7 +35,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/cadastrousuario" element={<CadastroUsuario />} />
             <Route path="/temas" element={<ListaTema />} />
-            <Route path="/posts" element={<ListaPostagem />} />
+            <Route path="/postagens" element={<ListaPostagem />} />
             <Route path="/formularioPostagem" element={<CadastroPost />} />
             <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
             <Route path="/formularioTema" element={<CadastroTema />} />
@@ -40,6 +43,9 @@ function App() {
             <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
             <Route path="/deletarTema/:id" element={<DeletarTema />} />
             <Route path="/perfil" element={<Perfil />} />
+
+            <Route path="/atualizarusuario" element={<AtualizarUsuario />} />
+            <Route path="/postagensportitulo" element={<ListaPostagemPorTitulo />} />
           </Routes>
         </div>
         <Footer />
