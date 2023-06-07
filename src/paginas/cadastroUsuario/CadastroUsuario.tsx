@@ -112,7 +112,7 @@ function CadastroUsuario() {
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid item xs={6} className='imagem2'></Grid>
+            <Grid item xs={6} className='imagem3'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
@@ -166,7 +166,7 @@ function CadastroUsuario() {
                             value={confirmarSenha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
                             id='confirmarSenha'
-                            label='confirmarSenha'
+                            label='confirmar Senha'
                             variant='outlined'
                             name='confirmarSenha'
                             margin='normal'
