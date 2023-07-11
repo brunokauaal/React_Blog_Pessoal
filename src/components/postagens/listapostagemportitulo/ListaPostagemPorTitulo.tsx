@@ -23,7 +23,7 @@ function ListaPostagemPorTitulo() {
     )
 
     useEffect(() => {
-        if (token === "") {
+        if (token === "0") {
             toast.error('Usuário não autenticado!', {
                 position: "top-right",
                 autoClose: 2000,
