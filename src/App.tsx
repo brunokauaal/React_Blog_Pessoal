@@ -43,7 +43,6 @@ function App() {
             <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
             <Route path="/deletarTema/:id" element={<DeletarTema />} />
             <Route path="/perfil" element={<Perfil />} />
-
             <Route path="/atualizarusuario" element={<AtualizarUsuario />} />
             <Route path="/postagensportitulo" element={<ListaPostagemPorTitulo />} />
           </Routes>
